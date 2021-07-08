@@ -91,6 +91,7 @@ until (jin.die? || villains.empty?) do
     puts "\n"
     
     friends.each do |hero|
+        break if villains.empty?
         hero.attack(villains[rand(villains.size)])
         villains.each do |villain|
             villains.delete(villain) if villain.die? || villain.flee?
@@ -101,6 +102,7 @@ until (jin.die? || villains.empty?) do
     puts "\n"
 
     villains.each do |villain|
+        break if heroes.empty?
         villain.attack(heroes[rand(heroes.size)])
         friends.each do |hero|
             friends.delete(hero) if hero.die? 
@@ -109,7 +111,7 @@ until (jin.die? || villains.empty?) do
     puts "\n"
 
     i += 1
-    break if villains.empty?
+    
 end
     
 
